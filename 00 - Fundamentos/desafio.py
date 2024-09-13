@@ -13,6 +13,14 @@ extrato = ""
 numero_saques = 0
 LIMITE_SAQUES = 3
 
+def sacar(saldo,valor):
+    Total = saldo - valor
+    return Total
+
+def depositar(saldo, valor):
+    Total = saldo + valor
+    return Total
+
 while True:
 
     opcao = input(menu)
@@ -21,7 +29,7 @@ while True:
         valor = float(input("Informe o valor do depósito: "))
 
         if valor > 0:
-            saldo += valor
+            saldo = depositar(saldo,valor)
             extrato += f"Depósito: R$ {valor:.2f}\n"
 
         else:
@@ -46,7 +54,7 @@ while True:
             print("Operação falhou! Número máximo de saques excedido.")
 
         elif valor > 0:
-            saldo -= valor
+            saldo = sacar(saldo, valor)
             extrato += f"Saque: R$ {valor:.2f}\n"
             numero_saques += 1
 
